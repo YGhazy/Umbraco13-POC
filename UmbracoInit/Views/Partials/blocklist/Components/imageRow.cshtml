@@ -1,4 +1,5 @@
 ﻿@inherits UmbracoViewPage<BlockListItem>
+@using Slimsy.Extensions
 @using Umbraco.Cms.Core.Models.Blocks
 @using Clean.Core.Extensions
 
@@ -15,7 +16,20 @@
 }
 
 <div class="image @(spacingClasses)">
-    <img src="@row.Image.Url()" alt="@row.Image.Content.GetAltText()" class="img-fluid">
+@*     <p>
+        Normal loading
+    </p>
+    <img src="@row.Image.Url()" alt="@row.Image.Content.GetAltText()" class="img-fluid"> *@
+    <p>
+        Lazy loading
+    </p>
+    <a >
+        <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+            <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+        </div>
+        <img class="img-fluid lazyload" data-srcset="@Url.GetSrcSetUrls(row.Image, 400, 290)" src="@row.Image.GetCropUrl(40, 29, quality: 40)" alt="@row.Image.GetAltText()" width="400" height="290" sizes="auto" />
+    </a>
+
     @if (!string.IsNullOrWhiteSpace(row.Caption))
     {
         <p class="caption">@row.Caption</p>

@@ -7,7 +7,7 @@
 
   <ItemGroup>
     <PackageReference Include="clean" Version="4.1.0" />
-    <PackageReference Include="Our.Umbraco.Slimsy" Version="5.0.0" />
+    <PackageReference Include="Our.Umbraco.Slimsy" Version="5.1.2" />
     <PackageReference Include="Umbraco.Cms" Version="13.4.0" />
   </ItemGroup>
 
